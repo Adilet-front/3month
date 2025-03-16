@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="module">
+        <form>
+          <input id="title" type="text" placeholder="title" />
+          <input id="price" type="text" placeholder="price" />
+          <input id="description" type="text" placeholder="description" />
+          <select id="category">
+            <option value="men's clothing">men's clothin</option>
+            <option value="jewelery">jewelery</option>
+            <option value="electronics">electronics</option>
+            <option value="women's clothing">women's clothing</option>
+            <option value="Homes">Homes</option>
+          </select>
+          <input id="image" type="text" placeholder="image" />
+          <input id="rate" type="text" placeholder="rate" />
+          <input id="count" type="text" placeholder="count" />
+          <div class="moduleMenu">
+            <button class="moduleClose">close</button>
+            <button class="moduleAdd">add</button>
+            <button class="moduleEdit">edit</button>
+          </div>
+        </form>
+      </div>
+      <header>
+        <div class="logo">
+          <img
+            src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0025/3927/brand.gif?itok=SZvNPx2c"
+            alt="logo"
+          />
+        </div>
+        <div class="menu">
+          <button class="add">
+            <img
+              src="https://www.svgrepo.com/show/2825/add-symbol.svg"
+              alt="cart logo"
+            />
+          </button>
+          <button class="cart">
+            <img
+              src="./icons/reshot-icon-shopping-cart-NFVWXUAK3D.svg"
+              alt="cart logo"
+            />
+          </button>
+        </div>
+      </header>
+      <div class="category"></div>
+      <div class="items"></div>
+      <div class="Description2">
+        <button id="closeButton">close</button> 
+      </div>
+
+      <div class="cartWrapper">
+        <div class="menuCart">
+          <div class="clearCart">
+            <p>Clear Cart</p>
+          </div>
+          <div class="closeCart">
+            <p>Close</p>
+          </div>
+        </div>
+        <div class="listCart"></div>
+      </div>
+    </div>
+    <script src="./main.js" defer></script>
+  </body>
+</html>
