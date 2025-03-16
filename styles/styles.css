@@ -27,6 +27,11 @@ img {
   position: absolute;
   top: 0;
 }
+.wrapper .Description2 .contMoreInfo .contImage img {
+  width: 100%;
+  height: 50%;
+  max-height: 1000px;
+}
 .wrapper .module {
   position: fixed;
   display: none;

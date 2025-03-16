@@ -21,8 +21,19 @@ img {
     height: 100%;
     background-color: grey;
     font-family:  ;
-    position:absolute;
+    position: absolute;
     top: 0;
+
+    .contMoreInfo {
+      .contImage {
+        img {
+          width: 100%;
+
+          height: 50%;
+          max-height: 1000px;
+        }
+      }
+    }
   }
   .module {
     position: fixed;
@@ -58,21 +69,18 @@ img {
         }
         .moduleEdit {
           display: none;
-          
         }
       }
     }
   }
 
-	.openDescription {
+  .openDescription {
     display: flex !important;
-
   }
 
   .openModule {
     display: flex !important;
   }
-
 
   .cartWrapper {
     position: fixed;

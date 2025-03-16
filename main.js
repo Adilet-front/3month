@@ -21,8 +21,6 @@ const rate = document.querySelector("#rate");
 const count = document.querySelector("#count");
 const categoryFilter = document.querySelector(".category");
 
-
-
 addProduct.addEventListener("click", async (e) => {
   e.preventDefault();
   const newProduct = {
@@ -47,18 +45,26 @@ addProduct.addEventListener("click", async (e) => {
   });
 });
 
+// closeButton.addEventListener("click", () => {
+//   descMenu.classList.remove("openDescription");
+// });
 
+Description2.addEventListener("click", (event) => {
+  if (event.target && event.target.id === "closeButton") {
+    Description2.classList.remove("openDescription");
+  }
+});
+
+closeButton.addEventListener("click", () => {
+  Description2.classList.remove("openDescription");
+});
 
 add.addEventListener("click", () => {
   module.classList.add("openModule");
 });
 
 add.addEventListener("click", () => {
-  Description2.classList.Description2("openDescription");
-});
-
-closeButton.addEventListener("click", () => {
-  Description2.classList.remove("openDescription");
+  Description2.classList.add("openDescription");
 });
 
 moduleClose.addEventListener("click", () => {
@@ -90,7 +96,6 @@ function displayData(data) {
   image.src = data.image;
 }
 const openDescription = () => {
-  
   if (id) {
     addDescription.textContent = "description";
     module.classList.add("openDescription");
@@ -131,10 +136,7 @@ const renderCategory = (newProduct) => {
 
 const renderMoreInfo = (product) => {
   Description2.innerHTML = "";
-
-///////////////////////////////////////////////////////////////////////////////////////////
   Description2.innerHTML += `
-
     <div class="contMoreInfo">
       <div class="contImage">
         <img src="${product.image}" alt="${product.title}">
@@ -142,7 +144,11 @@ const renderMoreInfo = (product) => {
       <h2>${product.title}</h2>
       <p>${product.description}</p>
       <p>Цена: $${product.price}</p>
-
+      <p>category: ${product.category}</p>
+      <div class="descMenu">
+      <p>rating:${product.rating.rate}</p>
+        <button id="closeButton">Отмена</button> 
+      </div>
     </div>
   `;
 };
@@ -174,7 +180,6 @@ const renderProducts = (newProduct = products) => {
   const edits = document.querySelectorAll(".edit");
 
   const fullDescription = document.querySelectorAll(".fullDescription");
-
 
   fullDescription.forEach((el) => {
     el.addEventListener("click", (event) => {
@@ -228,6 +233,6 @@ const startApp = () => {
       renderCategory();
     });
 };
-fetchProduct()
+fetchProduct();
 
 startApp();
