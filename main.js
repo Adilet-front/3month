@@ -3,6 +3,7 @@ const url = "http://localhost:3000/products";
 const Description2 = document.querySelector(".Description2");
 const closeButton = document.querySelector("#closeButton");
 
+
 const openCart = document.querySelector(".cart");
 const closeCart = document.querySelector(".closeCart");
 const wrapperCart = document.querySelector(".cartWrapper");
@@ -82,6 +83,14 @@ closeCart.addEventListener("click", () => {
 let products = [];
 let productCategory = [];
 
+const categoryColors = {
+  "electronics": "blue",
+  "jewelery": "purple",
+  "men's clothing": "green",
+  "women's clothing": "red"
+};
+
+
 fetch(url)
   .then((res) => res.json())
   .then((data) => {
@@ -119,6 +128,7 @@ const renderCategory = (newProduct) => {
   categoryFilter.innerHTML = "";
 
   productCategory.forEach((el) => {
+    
     const p = document.createElement("p");
     p.textContent = el;
     p.addEventListener("click", () => {
@@ -135,6 +145,7 @@ const renderCategory = (newProduct) => {
 };
 
 const renderMoreInfo = (product) => {
+
   Description2.innerHTML = "";
   Description2.innerHTML += `
     <div class="contMoreInfo">
@@ -155,10 +166,12 @@ const renderMoreInfo = (product) => {
 
 //items
 const renderProducts = (newProduct = products) => {
+  
   items.innerHTML = "";
   newProduct.forEach((product) => {
+    
     items.innerHTML += `
-			<div class='item'>
+			<div style="background: ${categoryColors[product.category]};" class='item'>
 				<div class='image'>
 					<img src="${product.image}" alt="image">
 				</div>
@@ -208,7 +221,8 @@ const renderProducts = (newProduct = products) => {
 
 const fetchProduct = async (id) => {
   try {
-    const response = await fetch(`${url}/${id}`);
+    const response = await fetch(
+      `${url}/${id}`);
     if (!response.ok) {
       throw new Error(`error: ${response.statusText}`);
     }
@@ -222,8 +236,10 @@ const fetchProduct = async (id) => {
 
 const startApp = () => {
   fetch(url)
+  
     .then((res) => res.json())
     .then((productsData) => {
+      
       products = productsData;
       productCategory = new Set([
         ...productsData.map((el) => el.category),

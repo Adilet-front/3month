@@ -166,6 +166,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background-color: grey;
 }
 .wrapper .items .item div {
   display: flex;
